@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Wikipedia Viewer</title>
+        <link rel="stylesheet" href="dist/main.css"/>
+    </head>
+    <body class="page">
+        <header class="articles-header">
+            <div class="logo">
+                <span class="logo--primary">Wiki</span>
+                <br>
+                <span class="logo--secondary">Viewer</span>
+            </div>
+            <div class="search">
+                <label class="search-input__label" for="search-input">Search</label>
+                <div class="input-group">
+                    <i class="fa fa-search search__icon"></i>
+                    <input class="search__input" id="search-input" type="text" name="search-input" placeholder="Search" />
+                </div>
+                <a class="random-article" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">-- View a random article --</a>
+            </div>
+
+        </header>
+        <div class="articles-container"></div>
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>

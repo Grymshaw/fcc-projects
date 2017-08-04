@@ -1,0 +1,29 @@
+$subnav-height: 30px;
+$subnav-color: lighten(lightblue, 10);
+$subnav-text-color: black;
+$subnav-hover-text-color: lighten($subnav-text-color, 30);
+
+.subnav {
+    height: $subnav-height;
+    background: $subnav-color;
+}
+.container-subnav {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.subnav__links {
+    font-size: 1.25rem;
+    margin-right: 10px;
+}
+.subnav__link {
+    padding: 0 5px;
+    color: $subnav-text-color;
+    text-decoration: none;
+    &:hover {
+        color: $subnav-hover-text-color;
+    }
+}
+
+    

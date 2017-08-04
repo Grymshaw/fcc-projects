@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+$card-color: purple;
+$header-height: 40%;
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card {
+    box-sizing: border-box;
+    width: 400px;
+    max-width: 95%;
+    height: 200px;
+    border-radius: 5px;
+    border-top: 3px solid darken($card-color, 5);
+    margin: 10px auto;
+    box-shadow: 10px 2px 20px 2px lightgrey;
+}
+.card__header {
+    width: 100%;
+    height: $header-height;
+    background: linear-gradient($card-color, darken($card-color, 10));
+    text-align: center;
+}
+.card__body {
+    box-sizing: border-box;
+    padding: 7.5px;
+    border-left: 2px solid lighten($card-color, 10);
+    height: 100% - $header-height;
+}
+.card__avatar {
+    height: 95%;
+    width: 100px;
+    max-width: 70%;
+}
+.user-stat {
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+.user-stat--name {
+    text-align: center;
+    font-size: 1.25rem;
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: purple;
+            border-bottom: 2px solid purple;
+        }
+    }
+}
+.user-stat--status {
+    // margin-top: 5px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.status-icon {
+    margin-right: 5px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+.status-icon--online {
+    background-color: darkgreen;
+}
+.status-icon--offline {
+    background-color: red;
+}
+.user-stat--viewers {
+    font-style: italic;
+    &:before {
+        content: '(';
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    &:after {
+        content: ' viewers)';
+    }
+}
+.user-stat--title {
+    max-height: 20px;
+    overflow-y: hidden;
+    margin-left: 10px;
+}
+.user-stat--game {
+    margin-left: 20px;
+    font-weight: 0.7;
+    font-style: italic;
+}

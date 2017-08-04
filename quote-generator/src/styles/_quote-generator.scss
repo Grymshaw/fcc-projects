@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+$background-color: lightblue;
+$text-color: black;
+
+.quote-generator {
+    font-family: 'Raleway', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 5px;
+    //box-shadow: 5px;
+    margin: 20px auto;
+}
+.quote {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 90%;
+}
+.quote__text {
+    font-size: 1.3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+.quote__citation {
+    text-align: right;
+    font-size: 1rem;
+    position: absolute;
+    right: -5px;
+    bottom: -40px;
+    &:before {
+        content: '-';
+    }
+}
+.quote__footer {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid $text-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.like-dislike {
+    flex: 2;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.vote-button {
+    color: black;
+    font-size: 1rem;
+    border: 2px solid;
+    padding: 5px 10px;
+    margin: 0 5px;
+    margin-top: 5px;
+    width: 75px;
+    &:hover {
+        cursor: pointer;
+    }
+    @media(max-width: 200px) {
+        width: 100%;
+    }
+}
+.vote-button--like {
+    color: darken(green, 20);
+    &:hover {
+        color: green;
+    }
+}
+.vote-button--dislike {
+    color: darken(red, 20);
+    &:hover {
+        color: darken(red, 10);
+    }
+}
+.share {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    @media (min-width: 270px) {
+        justify-content: flex-end;
+    }
+}
+.share__link {
+    font-size: 1.5rem;
+    color: inherit;
+    text-decoration: none;
+    margin: 0 5px;
+    &:hover {
+        color: white;
+    }
+}
+.share__link--twitter {
+    &:hover {
+        color: lighten(blue, 10);
+    }
+}
+.share__link--facebook {
+    &:hover {
+        color: lighten(darkblue, 20);
+    }
+}
+.new-quote {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+.button {
+    outline: none;
+    color: inherit;
+    background: transparent;
+    margin: 0 auto;
+    border: 2px solid;
+
+    &:hover {
+        cursor: pointer;
+        color: darken(orange, 10);
+    }
+}
+.button-large {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+}

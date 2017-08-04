@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Random Quote Generator</title>
+        <link rel="stylesheet" href="dist/main.css"/>
+    </head>
+    <body>
+        <div class="quote-generator">
+            <div class="quote">
+                <blockquote class="quote__text">
+                    <span class="quote__citation">Anon.</span>
+                </blockquote>
+            </div>
+            <div class="quote__footer">
+                <div class="like-dislike">
+                    <span class="vote-button vote-button--like"><i class="fa fa-thumbs-o-up"></i> Like</span>
+                    <span class="vote-button vote-button--dislike"><i class="fa fa-thumbs-o-down"></i> Dislike</span>
+                </div>
+                <div class="share">
+                    <a class="share__link share__link--twitter js-twitter-share" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a class="share__link share__link--facebook js-facebook-share" href="facebook"><i class="fa fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="new-quote">
+                <button class="button button-large js-get-quote-button">Get another quote</button>
+            </div>
+        </div>
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>

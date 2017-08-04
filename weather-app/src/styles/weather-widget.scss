@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.weather-widget {
+    background: transparent;
+    border: 5px solid black;
+    border-radius: 10px;
+    min-width: 200px;
+    width: 10%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.icon {
+    padding: 20px 20px;
+    border-radius: 50%;
+    background: lightskyblue;
+    margin-bottom: 20px;
+    border: 2px solid black;
+}
+.description--main {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.description--secondary {
+    //font-style: italic;
+}
+.temperature {
+    display: flex;
+    align-items: center;
+}
+.temperature--current {
+    flex: 1;
+    font-size: 1.25rem;
+}
+.temperature__secondary {
+    flex: 1;
+}
+.unit-selector {
+    font-weight: bold;
+    p {
+        margin: 10px;
+    }
+}
+.unit-button {
+    outline: none;
+    border: 1px solid black;
+    background: transparent;
+    padding: 5px 15px;
+}
+

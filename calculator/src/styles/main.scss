@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+.calculator {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 250px;
+    padding: 10px;
+    margin: 10px auto;
+    background: linear-gradient(70deg, black 30%, darkred 70%);
+    color: blanchedalmond;
+    border: 3px solid black;
+    border-radius: 3px;
+}
+.buttons {
+    width: 100%;
+}
+.button-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 3px 3px;
+    min-width: 30px;
+    min-height: 30px;
+    border: 2px solid;
+    margin: 3px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.button--clear {
+    background-color: darken(red, 10);
+    &:hover {
+        background-color: darken(red, 5);
+    }
+}
+.button--clear-entry {
+    background-color: darken(red, 20);
+    &:hover {
+        background-color: darken(red, 15);
+    }
+}
+.button--correction {
+    background-color: darken(yellow, 20);
+    &:hover {
+        background-color: darken(yellow, 15);
+    }
+}
+.button__operator {
+    background-color: grey;
+    &:hover {
+        background-color: lighten(grey, 15);
+    }
+
+}
+.button--number,
+.button--decimal {
+    background-color: black;
+    &:hover {
+        background-color: lighten(black, 20);
+    }
+}
+.display {
+    text-align: right;
+    font-size: 1.5rem;
+    width: 90%;
+    height: 30px;
+    overflow: hidden;
+    border: 3px solid;
+    padding-right: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}

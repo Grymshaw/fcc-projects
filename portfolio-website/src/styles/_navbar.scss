@@ -1,0 +1,93 @@
+$navbar-height: 50px;
+$navbar-color: lightblue;
+$navbar-text-color: black;
+$navbar-hover-text-color: lighten($navbar-text-color, 30);
+$navbar-breakpoint: 600px;
+
+.navbar {
+    width: 100%;
+    height: $navbar-height;
+    background: $navbar-color;
+    display: flex;
+    align-items: center;
+}
+.container-navbar {
+    @media (min-width: $navbar-breakpoint) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.navbar__brand {
+    font-size: 1.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @media (min-width: $navbar-breakpoint) {
+        display: block;
+        width: auto;
+    }
+}
+.navbar__toggle {
+    @media (min-width: $navbar-breakpoint) {
+        display: none;
+    }
+}
+.navbar__links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    transition: width 0.5s;
+    background: $navbar-color;
+    z-index: 1;
+    @media (min-width: $navbar-breakpoint) {
+        position: initial;
+        height: auto;
+        width: auto;
+    }
+}
+.collapsed-side {
+    @media (max-width: $navbar-breakpoint) {
+        width: 0;
+    }
+}
+.navbar__link {
+    display: block;
+    color: inherit;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    &:first-child {
+        padding-top: 50px;
+    }
+    &:hover {
+        color: $navbar-hover-text-color;
+    }
+    @media (min-width: $navbar-breakpoint) {
+        display: inline-block;
+        color: inherit;
+        padding: 0 5px 5px 5px;
+        &:first-child {
+            padding-top: 0;
+        }
+        &:hover {
+            border-bottom: 1px solid;
+        }
+    }
+}
+.navbar__collapse {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 3rem;
+    line-height: 1;
+    &:hover {
+        cursor: pointer;
+        color: $navbar-hover-text-color;
+    }
+    @media (min-width: $navbar-breakpoint) {
+        display: none;
+    }
+}

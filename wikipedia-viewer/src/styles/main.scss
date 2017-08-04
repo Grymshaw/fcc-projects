@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Source+Sans+Pro');
+
+.page {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0 auto;
+    width: 90%;
+    background: darken(steelblue, 10);
+}
+.articles-header {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+.logo {
+    width: 100%;
+    font-size: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    line-height: 0.9;
+    margin-bottom: 15px;
+}
+.logo--primary {
+    color: white;
+}
+.logo--secondary {
+    color: springgreen;
+}
+
+.search {
+    max-width: 350px;
+    color: darken(turquoise, 10);
+    margin: 0 auto;
+}
+.search-input__label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    //opacity: 0;
+    transition: opactiy 1s;
+    display: block;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+.input-group {
+    position: relative;
+}
+.search__input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: lighten(lightgrey, 20);;
+}
+.search__icon {
+    position: absolute;
+    right: 10px;
+    top: 20%;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.random-article {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        border-bottom: 1px solid;
+    }
+}
+.loading-icon {
+    margin: 0 auto;
+    color: springgreen;
+}
+
+
+.isLoading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article {
+    color: lightgrey;
+    width: 100%;
+    //background: darkred;
+    background: transparent;
+    border-radius: 5px;
+    border: 3px solid darken(darkred, 20);
+    margin: 0 auto;
+    margin-bottom: 10px;
+    height: 120px;
+    overflow: hidden;
+}
+.article__title {
+    margin: 0;
+    padding: 10px 0 5px 10px;
+}
+.article__link {
+    text-decoration: none;
+    color: springgreen;
+    &:hover {
+        border-bottom: 1px solid;
+    }
+}
+.article__description {
+    color: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
