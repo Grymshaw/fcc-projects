@@ -10,6 +10,7 @@ import Timer from './Timer.js';
         breakTime = 0,
         initialMainTime = null,
         initialBreakTime = null,
+        isTimerStarted = false,
         isTimerInitialized = false,
         breakTimer,
         mainTimer;
@@ -25,8 +26,9 @@ import Timer from './Timer.js';
 
     // Bind Events
     $startButton.on('click', () => {
-            mainTime = ( parseInt($mainMinutes.val()) * 60 + parseInt($mainSeconds.val()) ) * 1000;
-            breakTime = ( parseInt($breakMinutes.val()) * 60 + parseInt($breakSeconds.val()) ) * 1000;
+        isTimerStarted = true;
+        mainTime = ( parseInt($mainMinutes.val()) * 60 + parseInt($mainSeconds.val()) ) * 1000;
+        breakTime = ( parseInt($breakMinutes.val()) * 60 + parseInt($breakSeconds.val()) ) * 1000;
         if(!isTimerInitialized) {
             initialMainTime = ( parseInt($mainMinutes.val()) * 60 + parseInt($mainSeconds.val()) ) * 1000;
             initialBreakTime = ( parseInt($breakMinutes.val()) * 60 + parseInt($breakSeconds.val()) ) * 1000;
@@ -51,6 +53,7 @@ import Timer from './Timer.js';
             mainTime = initialMainTime;
             breakTime = initialBreakTime;
             isTimerInitialized = false;
+            isTimerStarted = false;
             initializeTimers();
             render();
             toggleInputs();
@@ -60,6 +63,7 @@ import Timer from './Timer.js';
     function initializeTimers() {
         breakTimer = new Timer(breakTime, () => {
             alert('Break timer finished!');
+            isTimerStarted = false;
             toggleButtonVisibility();
             toggleInputs();
         });
@@ -99,11 +103,10 @@ import Timer from './Timer.js';
     }
 
     function toggleInputs() {
-        let currentState = $mainMinutes.attr('disabled');
-        $mainMinutes.attr('disabled', !currentState);
-        $mainSeconds.attr('disabled', !currentState);
-        $breakMinutes.attr('disabled', !currentState);
-        $breakSeconds.attr('disabled', !currentState);
+        $mainMinutes.attr('disabled', isTimerStarted);
+        $mainSeconds.attr('disabled', isTimerStarted);
+        $breakMinutes.attr('disabled', isTimerStarted);
+        $breakSeconds.attr('disabled', isTimerStarted);
     }
 
     function getMinutes(ms) {
