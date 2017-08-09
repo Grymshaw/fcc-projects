@@ -1,10 +1,10 @@
 export default class Timer {
     constructor(time, callback) {
-        this.time = time;
         this.timeRemaining = time;
         this.isDone = false;
         this.intervals = [];
         this.doneCallback = callback;
+        this.tickCallback = null;
         this.tick = 1000; //interval time in ms
         this.isStarted = false;
         this.pauseTime = null;
@@ -20,7 +20,6 @@ export default class Timer {
             //re-add interval after correct time til next tick has ellapsed
             let self = this;
             setTimeout(() => {
-
                 self.intervals.push(setInterval(() => {
                     self.decreaseRemainingTime(self.tick);
                 }, self.tick));
@@ -37,12 +36,14 @@ export default class Timer {
     decreaseRemainingTime(time) {
         if(this.timeRemaining - time <= 0) {
             this.timeRemaining = 0;
+            this.tickCallback();
             this.isDone = true;
             this.clearIntervals();
             this.doneCallback();
         } else {
             this.lastTick = Date.now();
             this.timeRemaining -= time;
+            this.tickCallback();
             this.isDone = this.timeRemaining <= 0;
         }
     }
@@ -53,14 +54,8 @@ export default class Timer {
         }
         this.clearIntervals();
     }
-    getRemainingTime() {
+    getTimeRemaining() {
         return this.timeRemaining;
-    }
-    reset() {
-        this.timeRemaining = this.time;
-        this.isDone = false;
-        this.clearIntervals();
-        this.intervals = [];
     }
     clearIntervals() {
         this.intervals.forEach((val) => {

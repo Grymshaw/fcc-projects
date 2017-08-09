@@ -4,6 +4,49 @@
         <link rel="stylesheet" href="dist/main.css"/>
     </head>
     <body>
+        <div class="timer-wrapper">
+            <div class="timer js-main-timer">
+                <h3 class="timer__header">Main timer</h3>
+                <input class="timer__input timer__input--minutes js-main-minutes"
+                    onClick="this.select();"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type = "number"
+                    maxlength = "2"
+                    value="00"
+                />
+                :
+                <input class="timer__input timer__input--seconds js-main-seconds"
+                    onClick="this.select();"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type = "number"
+                    maxlength = "2"
+                    value="00"
+                />
+            </div>
+            <div class="timer js-break-timer">
+                <h3 class="timer__header">Break timer</h3>
+                <input class="timer__input timer__input--minutes js-break-minutes"
+                    onClick="this.select();"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type = "number"
+                    maxlength = "2"
+                    value="00"
+                />
+                :
+                <input class="timer__input timer__input--seconds js-break-seconds"
+                    onClick="this.select();"
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type = "number"
+                    maxlength = "2"
+                    value="00"
+                />
+            </div>
+            <div class="timer__buttons">
+                <a class="button button--start js-start-button">Start</a>
+                <a class="button button--pause js-pause-button hidden">Pause</a>
+                <a class="button button--reset js-reset-button">Reset</a>
+            </div>
+        </div>
         <script src="dist/bundle.js"></script>
     </body>
 </html>

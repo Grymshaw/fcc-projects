@@ -1,29 +1,121 @@
 import "normalize.css";
 import "../styles/main.scss";
+import $ from 'jquery';
 import Timer from './Timer.js';
 
-let start, end;
+(() => {
 
-const breakTimer = new Timer(5000, () => {
-    console.log('Break timer finished');
-});
-const mainTimer = new Timer(5 * 1000, () => {
-    console.log('Main timer finished');
-    end = Date.now();
-    console.log(end - start);
-    breakTimer.start();
-});
+    // Initialize variables
+    let mainTime = 0,
+        breakTime = 0,
+        initialMainTime = null,
+        initialBreakTime = null,
+        isTimerInitialized = false,
+        breakTimer,
+        mainTimer;
 
-start = Date.now();
-mainTimer.start();
+    // Cache DOM
+    const $mainMinutes = $('.js-main-minutes'),
+        $mainSeconds = $('.js-main-seconds'),
+        $breakMinutes = $('.js-break-minutes'),
+        $breakSeconds = $('.js-break-seconds'),
+        $startButton = $('.js-start-button'),
+        $pauseButton = $('.js-pause-button'),
+        $resetButton = $('.js-reset-button');
 
-setTimeout(() => {
-    console.log('pausing timer at ' + Date.now());
-    mainTimer.pause();
-}, 1500);
-setTimeout(() => {
-    console.log('unpausing timer at ' + Date.now());
-    mainTimer.start();
-}, 2000);
+    // Bind Events
+    $startButton.on('click', () => {
+            mainTime = ( parseInt($mainMinutes.val()) * 60 + parseInt($mainSeconds.val()) ) * 1000;
+            breakTime = ( parseInt($breakMinutes.val()) * 60 + parseInt($breakSeconds.val()) ) * 1000;
+        if(!isTimerInitialized) {
+            initialMainTime = ( parseInt($mainMinutes.val()) * 60 + parseInt($mainSeconds.val()) ) * 1000;
+            initialBreakTime = ( parseInt($breakMinutes.val()) * 60 + parseInt($breakSeconds.val()) ) * 1000;
+            isTimerInitialized = true;
+        }
+        toggleInputs();
+        toggleButtonVisibility();
+        initializeTimers();
+        mainTimer.start();
+    });
+    $pauseButton.on('click', () => {
+        //pause timers
+        if(mainTimer.isStarted)
+            mainTimer.pause();
+        if(breakTimer.isStarted)
+            breakTimer.pause();
+        //change which buttons are visible
+        toggleButtonVisibility();
+    });
+    $resetButton.on('click', () => {
+        if(isTimerInitialized) {
+            mainTime = initialMainTime;
+            breakTime = initialBreakTime;
+            isTimerInitialized = false;
+            initializeTimers();
+            render();
+            toggleInputs();
+        }
+    });
+
+    function initializeTimers() {
+        breakTimer = new Timer(breakTime, () => {
+            alert('Break timer finished!');
+            toggleButtonVisibility();
+            toggleInputs();
+        });
+        addTimerTickCallback(breakTimer, $breakMinutes, $breakSeconds);
+
+        mainTimer = new Timer(mainTime, () => {
+            breakTimer.start();
+        });
+        addTimerTickCallback(mainTimer, $mainMinutes, $mainSeconds);
+    }
+
+    function render() {
+        $mainMinutes.val( getDisplayNumber(getMinutes(mainTimer.timeRemaining)) );
+        $mainSeconds.val( getDisplayNumber(getSeconds(mainTimer.timeRemaining)) );
+        $breakMinutes.val( getDisplayNumber(getMinutes(breakTimer.timeRemaining)) );
+        $breakSeconds.val( getDisplayNumber(getSeconds(breakTimer.timeRemaining)) );
+    }
+
+    function getDisplayNumber(num) {
+        if(num < 10) {
+            return '0' + num.toString();
+        }
+        return num.toString();
+    }
+
+    function addTimerTickCallback(timer, $minutes, $seconds) {
+        timer.tickCallback = () => {
+            let timeRemaining = timer.timeRemaining;
+            render();
+        };
+    }
+
+    function toggleButtonVisibility() {
+        $startButton.toggleClass('hidden');
+        $pauseButton.toggleClass('hidden');
+        $resetButton.toggleClass('hidden');
+    }
+
+    function toggleInputs() {
+        let currentState = $mainMinutes.attr('disabled');
+        $mainMinutes.attr('disabled', !currentState);
+        $mainSeconds.attr('disabled', !currentState);
+        $breakMinutes.attr('disabled', !currentState);
+        $breakSeconds.attr('disabled', !currentState);
+    }
+
+    function getMinutes(ms) {
+        return (ms / 1000 - getSeconds(ms)) / 60;
+    }
+
+    function getSeconds(ms) {
+        return ms / 1000 % 60;
+    }
+
+})();
+
+
 
 

@@ -1,1 +1,68 @@
+.timer-wrapper {
+    width: 350px;
+    padding: 30px 50px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.timer {
+    margin: 10px auto;
+    text-align: center;
+}
+.timer__header {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.timer__input {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    text-align: center;
+    width: 3rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.timer__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.button {
+    flex: 1;
+    margin: 0 10px;
+    color: #F0F0F0;
+    padding: 10px 15px;
+    min-width: 50px;
+    text-align: center;
+    text-decoration: none;
+    background-color: darkcyan;
+    border-radius: 5px;
+    &:hover {
+        background: darken(darkcyan, 5);
+        cursor: pointer;
+    }
+}
+.button--start {
+    // width: 200px;
+}
+.button--pause {
+    background-color: goldenrod;
+    &:hover {
+        background: darken(goldenrod, 5);
+    }
+}
+.button--reset {
+    background-color: maroon;
+    &:hover {
+        background: darken(maroon, 5);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
 
