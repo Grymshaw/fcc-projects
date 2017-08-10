@@ -19,6 +19,12 @@
     border-bottom: 1.5px solid grey;
     text-align: center;
     width: 3rem;
+    &[disabled] {
+        color: red;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
