@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Webpack Starter Project</title>
+        <link rel="stylesheet" href="dist/main.css"/>
+    </head>
+    <body>
+
+        <div class="mode-select">
+            <h3 class="mode-select__header">Choose your game mode:</h3>
+            <span class="mode-select__option js-select-1p">1 Player</span>
+            <span class="mode-select__option js-select-2p">2 Player</span>
+        </div>
+
+        <div class="token-select hidden">
+            <h3 class="token-select__header">P1 Token Select:</h3>
+            <span class="token-select__option js-select-x">X</span>
+            <span class="token-select__option js-select-o">O</span>
+        </div>
+
+        <div class="game-container">
+
+            <div class="turn-indicator js-turn-indicator-p1">
+                Player 1's turn
+            </div>
+            <div class="turn-indicator js-turn-indicator-p2">
+                Player 2's turn
+            </div>
+
+            <div class="game-board">
+                <div class="board-overlay hidden">
+                    Game Over!<br/>
+                    Player 1 Wins
+                </div>
+                <div class="game-board__tile top-left">
+                </div>
+                <div class="game-board__tile top-mid">
+                </div>
+                <div class="game-board__tile top-right">
+                </div>
+                <div class="game-board__tile mid-left">
+                </div>
+                <div class="game-board__tile mid-mid">
+                </div>
+                <div class="game-board__tile mid-right">
+                </div>
+                <div class="game-board__tile bot-left">
+                </div>
+                <div class="game-board__tile bot-mid">
+                </div>
+                <div class="game-board__tile bot-right">
+                </div>
+            </div>
+
+            <div class="game-scoreboard">
+                <h3 class="scoreboard__header">Scoreboard</h3>
+                <div class="scoreboard__section js-p1-scoreboard">
+                    <h4 class="scoreboard__player-name js-p1-name">You</h4>
+                    <div class="scoreboard__player-score js-p1-score">
+                        4
+                    </div>
+                </div>
+                <div class="scoreboard__section js-p2-scoreboard">
+                    <h4 class="scoreboard__player-name js-p2-name">PC</h4>
+                    <div class="scoreboard__player-score js-p2-score">
+                        7
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <script src="dist/bundle.js"></script>
+
+    </body>
+</html>
